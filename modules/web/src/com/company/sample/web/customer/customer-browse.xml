@@ -13,7 +13,8 @@
                 <![CDATA[select e from sample$Customer e]]>
                 <filter>
                     <and>
-                        <c><![CDATA[e.name like :custom$name]]></c>
+                        <c><![CDATA[e.name like :(?i)custom$name]]></c>
+                        <c><![CDATA[e.email like :(?i)custom$email]]></c>
                     </and>
                 </filter>
             </query>
