@@ -21,14 +21,20 @@ public class FilterableCustomerDatasource extends CustomCollectionDatasource<Not
 
     @Override
     protected Collection<NotPersistentCustomer> getEntities(Map<String, Object> params) {
+        // check if we're in filtering mode and don't want to load data from DB
         if (filtering) {
             if (MapUtils.isNotEmpty(params)) {
                 return customers.stream()
                         .filter(customer -> {
                             for (Map.Entry<String, Object> entry : params.entrySet()) {
+                                // we assume that entry's key correspond to an entity attribute
+                                // so we can get value from entity by attribute name
                                 String value = customer.getValue(entry.getKey());
+                                // and entry's value is a string, so we can use containsIgnoreCase util method
                                 String filterValue = (String) entry.getValue();
                                 if (!StringUtils.containsIgnoreCase(value, filterValue)) {
+                                    // if one of the attributes' value does not match to the filtering rules,
+                                    // we exclude entity
                                     return false;
                                 }
                             }
@@ -37,6 +43,7 @@ public class FilterableCustomerDatasource extends CustomCollectionDatasource<Not
                         .collect(Collectors.toList());
             }
         } else {
+            // if we're not in filtering mode, then reload data from DB using service
             customers = customerService.getCustomers(params);
         }
         return customers;

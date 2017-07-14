@@ -54,12 +54,15 @@ public class CustomerServiceBean implements CustomerService {
         StringBuilder sb = new StringBuilder();
         sb.append("select e from sample$Customer e");
 
+        // remove records with empty value from map
         Map<String, Object> cleanedParameters = cleanParameters(parameters);
 
+        // we need to construct a query in case of passed filter parameters
         String paramSeparator = " and ";
         if (MapUtils.isNotEmpty(cleanedParameters)) {
             sb.append(" where ");
             for (String key : cleanedParameters.keySet()) {
+                // for every entry add a 'contains ignore case' comparison
                 sb.append("e.")
                         .append(key)
                         .append(" like :")
@@ -68,11 +71,13 @@ public class CustomerServiceBean implements CustomerService {
             }
         }
 
+        // remove last separator
         String queryString = StringUtils.chomp(sb.toString(), paramSeparator);
         LoadContext.Query query = new LoadContext.Query(queryString);
 
         if (MapUtils.isNotEmpty(cleanedParameters)) {
             for (Map.Entry<String, Object> entry : cleanedParameters.entrySet()) {
+                // for every entry add a particular value of parameter
                 query.setParameter(entry.getKey(), "(?i)%" + entry.getValue() + "%");
             }
         }
