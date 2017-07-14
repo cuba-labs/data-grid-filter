@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <metadata xmlns="http://schemas.haulmont.com/cuba/metadata.xsd">
-
-    <metadata-model root-package="com.company.sample" namespace="sample"/>
-
+    <metadata-model namespace="sample"
+                    root-package="com.company.sample">
+        <class>com.company.sample.entity.NotPersistentCustomer</class>
+    </metadata-model>
 </metadata>
