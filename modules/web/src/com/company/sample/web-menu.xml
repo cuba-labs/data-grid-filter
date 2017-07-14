@@ -3,6 +3,7 @@
     <menu id="application-sample"
           insertBefore="administration">
         <item screen="sample$Customer.browse"/>
-        <item screen="sample$NotPersistentCustomer.browse"/>
+        <item screen="custom-ds-browser"/>
+        <item screen="filterable-ds-browser"/>
     </menu>
 </menu-config>

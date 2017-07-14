@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://browseCaption"
-        class="com.company.sample.web.notpersistentcustomer.NotPersistentCustomerBrowse"
+        class="com.company.sample.web.notpersistent.NotPersistentCustomerBrowse"
         focusComponent="customersDataGrid"
         lookupComponent="customersDataGrid"
-        messagesPack="com.company.sample.web.notpersistentcustomer">
+        messagesPack="com.company.sample.web.notpersistent">
     <dsContext>
         <collectionDatasource id="customersDs"
                               allowCommit="false"
                               class="com.company.sample.entity.NotPersistentCustomer"
-                              datasourceClass="com.company.sample.web.notpersistentcustomer.CustomerDatasource">
+                              datasourceClass="com.company.sample.web.notpersistent.CustomerDatasource">
         </collectionDatasource>
     </dsContext>
     <dialogMode height="600"

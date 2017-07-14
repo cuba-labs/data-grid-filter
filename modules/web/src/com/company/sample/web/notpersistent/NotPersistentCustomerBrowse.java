@@ -1,4 +1,4 @@
-package com.company.sample.web.notpersistentcustomer;
+package com.company.sample.web.notpersistent;
 
 import com.company.sample.entity.NotPersistentCustomer;
 import com.haulmont.cuba.gui.components.AbstractLookup;

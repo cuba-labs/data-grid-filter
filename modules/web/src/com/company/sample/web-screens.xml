@@ -5,6 +5,8 @@
             template="com/company/sample/web/customer/customer-browse.xml"/>
     <screen id="sample$Customer.edit"
             template="com/company/sample/web/customer/customer-edit.xml"/>
-    <screen id="sample$NotPersistentCustomer.browse"
-            template="com/company/sample/web/notpersistentcustomer/not-persistent-customer-browse.xml"/>
+    <screen id="custom-ds-browser"
+            template="com/company/sample/web/notpersistent/not-persistent-customer-browse.xml"/>
+    <screen id="filterable-ds-browser"
+            template="com/company/sample/web/filterable/filterable-browser.xml"/>
 </screen-config>
